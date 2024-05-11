@@ -22,6 +22,6 @@ func main(){
 	fmt.Println("Average:",functions.Average(inputFile))
 	fmt.Println("Median:",functions.Median(inputFile))
 	fmt.Println("Variance:",functions.Variance(inputFile))
-	fmt.Println("Standard:",functions.StandardDev(inputFile))
+	fmt.Println("Standard Deviation:",functions.StandardDev(inputFile))
 
 }
