@@ -5,9 +5,10 @@ import "strings"
 func Variance(inputFile []byte) int{
 	mean := Average(inputFile)
 	
-	inputStr := strings.Split(string(inputFile), "\n")
-	sum := 0
-	count := 0
+	input := strings.Split(string(inputFile), "\n")
+	inputStr := RemoveInvalid(input)
+
+	var sum, count int
 
 	for i := 0; i < len(inputStr); i++{
 		count++

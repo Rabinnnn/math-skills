@@ -1,6 +1,7 @@
 package functions
 
 func StandardDev(inputFile []byte) int{
+
 	n := Variance(inputFile)
 	result := 0
 
@@ -9,5 +10,6 @@ func StandardDev(inputFile []byte) int{
 			result = i
 		}
 	}
+
 return result
 }

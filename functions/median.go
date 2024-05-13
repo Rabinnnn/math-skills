@@ -1,12 +1,11 @@
 package functions
 
-import(
-	"strings"
-)
+import "strings"
 
 
 func Median(inputFile []byte) int{
-	inputStr := strings.Split(string(inputFile), "\n")
+	input := strings.Split(string(inputFile), "\n")
+	inputStr := RemoveInvalid(input)
 	
 	CustomSort(inputStr) // sort the slice in ascending order
 

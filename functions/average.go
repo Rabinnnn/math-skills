@@ -3,7 +3,9 @@ package functions
 import "strings"
 
 func Average(inputFile []byte) int{
-	inputStr := strings.Split(string(inputFile), "\n")
+	input := strings.Split(string(inputFile), "\n")
+	inputStr := RemoveInvalid(input)
+
 	count := 0
 	sum := 0
 	for i := 0; i < len(inputStr); i++{
@@ -12,5 +14,6 @@ func Average(inputFile []byte) int{
 
 	}
 	average := sum/count
+
 	return average
 }
