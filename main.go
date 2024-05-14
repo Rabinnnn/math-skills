@@ -10,6 +10,8 @@ func main(){
 
 	if len(os.Args) != 2{
 		fmt.Println("Please enter exactly 2 arguments!")
+		return
+
 	}
 
 	input := os.Args[1]
@@ -18,7 +20,8 @@ func main(){
 		fmt.Println("Error:", err)
 		return
 	}
-/*** Uncomment if you want an error message displayed incase the dataset contains some invalid data. Remember to import "strings"
+
+	/*** Uncomment if you want an error message displayed incase the dataset contains some invalid data. Remember to import "strings"
 	inputFileLine := strings.Split(string(inputFile), "\n")
 	inputStr := functions.RemoveInvalid(inputFileLine)
 
@@ -30,4 +33,7 @@ func main(){
 	fmt.Println("Median:",functions.Median(inputFile))
 	fmt.Println("Variance:",functions.Variance(inputFile))
 	fmt.Println("Standard Deviation:",functions.StandardDev(inputFile))
+	fmt.Println("StringToInt:",functions.StrToInt("103.50"))
+
+
 }

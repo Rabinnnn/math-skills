@@ -1,21 +1,29 @@
 package functions
 
-import "strings"
+import(
+	"strconv"
+	"strings"
+	"math"
+)
 
-func Variance(inputFile []byte) int{
+func Variance(inputFile []byte) int64{
 	mean := Average(inputFile)
 	
 	input := strings.Split(string(inputFile), "\n")
 	inputStr := RemoveInvalid(input)
 
-	var sum, count int
+	var sum, count float64
 
 	for i := 0; i < len(inputStr); i++{
 		count++
-		diff := StrToInt(inputStr[i]) - mean
+		num, _ := strconv.ParseFloat(inputStr[i], 64) 
+		diff := num - float64(mean)
 		diff2 := (diff*diff)
 		sum += diff2
 	}
 	result := sum/count
-	return result
+	output := math.Round(result)
+
+
+	return int64(output)
 }

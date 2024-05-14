@@ -1,15 +1,25 @@
 package functions
 
-func StandardDev(inputFile []byte) int{
+import(
+	"math"
+	"fmt"
+)
 
+func StandardDev(inputFile []byte) int64{
 	n := Variance(inputFile)
-	result := 0
 
-	for i := 0; i < n; i++{
-		if (i*i) == n{ //Get the square root 
-			result = i
-		}
+	if n == 0 || n == 1 {
+        return n
+    }
+
+	result := (n/2)
+	fmt.Println("result:", result)
+
+	for i := 0; i < int(result); i++{
+		//Get the square root 
+			result = result - (result*result-n)/(2*result)	
 	}
+	output := math.Round(float64(result))
 
-return result
+return int64(output)
 }

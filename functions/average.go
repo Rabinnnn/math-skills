@@ -1,19 +1,33 @@
 package functions
 
-import "strings"
+import(
+	"fmt"
+	"strconv"
+	"strings"
+	"math"
+)
 
-func Average(inputFile []byte) int{
+func Average(inputFile []byte) int64{
 	input := strings.Split(string(inputFile), "\n")
 	inputStr := RemoveInvalid(input)
 
-	count := 0
-	sum := 0
+	var count, sum float64
+	
 	for i := 0; i < len(inputStr); i++{
 		count += 1
-		sum += StrToInt(inputStr[i]) //convert the string to int before adding it to sum.
+		 num, err := strconv.ParseFloat(inputStr[i], 64) //convert the string to int before adding it to sum.
+		 if err != nil{
+			fmt.Println("Error", err)
+		 }
+		
+		 fmt.Println(num)
+		 sum += num
 
 	}
+	
 	average := sum/count
 
-	return average
+	output := math.Round(average)
+	
+	return int64(output)
 }
