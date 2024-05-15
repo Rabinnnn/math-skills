@@ -8,7 +8,7 @@ import(
 )
 
 
-func Median(inputFile []byte) int64{
+func Median(inputFile []byte) float64{
 	input := strings.Split(string(inputFile), "\n")
 	inputStr := RemoveInvalid(input)
 		
@@ -30,5 +30,5 @@ func Median(inputFile []byte) int64{
 
 	output := math.Round(median)
 
-	return int64(output)
+	return output
 }

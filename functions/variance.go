@@ -6,7 +6,7 @@ import(
 	"math"
 )
 
-func Variance(inputFile []byte) int64{
+func Variance(inputFile []byte) float64{
 	mean := Average(inputFile)
 	
 	input := strings.Split(string(inputFile), "\n")
@@ -25,5 +25,5 @@ func Variance(inputFile []byte) int64{
 	output := math.Round(result)
 
 
-	return int64(output)
+	return output
 }
