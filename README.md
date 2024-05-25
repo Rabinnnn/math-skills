@@ -17,6 +17,7 @@ Your program must be able to read from a file and print the result of each stati
 - 114
 - 145
 - 110
+- 122
 ...
 
 This data represents a statistical population: each line contains one value.
