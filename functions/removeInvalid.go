@@ -2,19 +2,17 @@ package functions
 
 import(
 	"strconv"
-	"fmt"
+	//"fmt"
 )
 
 func RemoveInvalid(input []string) []string{
 	var output []string
 
 	for _, num := range input{
-		floatingNum, err := strconv.ParseFloat(num, 64)
+		_, err := strconv.ParseFloat(num, 64)
 		if err != nil{
-			fmt.Println("Error:", err)
-		}
-
-		if floatingNum >= 0.0 && num != "" || num == "."{
+			continue
+		}else{
 			output = append(output, num)
 		} 
 		
