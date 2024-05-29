@@ -1,34 +1,22 @@
 package functions
 
-import(
-	"strings"
-	"strconv"
-	"math"
+import (
 	"sort"
 )
 
-
-func Median(inputFile []byte) float64{
-	input := strings.Split(string(inputFile), "\n")
-	inputStr := RemoveInvalid(input)
-		
-	sort.Strings(inputStr) // sort the slice in ascending order
+func Median(inputFile []float64) float64 {
+	sort.Float64s(inputFile) // sort the slice in ascending order
 
 	var num1, num2, median float64
-	n := len(inputStr)
-	
-	for i := 0; i < n; i++{
-		if len(inputStr)%2 == 0{ //check if the length is an even integer.
-			num1, _ = strconv.ParseFloat(inputStr[(n/2)-1], 64)
-			num2, _ = strconv.ParseFloat(inputStr[(n/2)], 64)
-			median = (num1+num2)/2
-		} else{
-			median, _ = strconv.ParseFloat(inputStr[(n/2)], 64)
-		}
-			
+	n := len(inputFile)
+
+	if n%2 == 0 { //calculate median differently for even and odd length
+		num1 = inputFile[(n/2)-1]
+		num2 = inputFile[(n / 2)]
+		median = (num1 + num2) / 2
+	} else {
+		median = inputFile[(n / 2)]
 	}
 
-	output := math.Round(median)
-
-	return output
+	return median
 }

@@ -5,59 +5,122 @@ import(
 	"fmt"
 	"os"
 	"math-skills/functions"
+	"bufio"
+	"strconv"
+	"log"
+	"math"
 )
 
+
 func TestAverage(t *testing.T){
-	input, err := os.ReadFile("testData.txt")
-	if err != nil{
+	inputFile, err := os.Open("testData.txt")
+	if err != nil {
 		fmt.Println("Error:", err)
-		os.Exit(1)	
+		return
 	}
 
-	expectedOutPut := float64(98765432098765438608701698157947138359373535903744)
-	result := functions.Average(input)
+	defer inputFile.Close()
+	
+	//Read through each line, convert valid data to float64 then add them to a new slice
+	scanner := bufio.NewScanner(inputFile)
+	numbers := []float64{}
+	for scanner.Scan() {
+		line := scanner.Text()
+		num, err := strconv.ParseFloat(line, 64)
+		if err != nil {
+			log.Fatalf("Error %s \n", err)
+		}
+		numbers = append(numbers, num)
+
+	}
+	expectedOutPut := float64(149)
+	result := math.Round(functions.Average(numbers))
 	if result != expectedOutPut{
 		t.Errorf("Expected %.0f but got %.0f", expectedOutPut, result)
 	}
 }
 
 func TestMedian(t *testing.T){
-	input, err := os.ReadFile("testData.txt")
-	if err != nil{
+	inputFile, err := os.Open("testData.txt")
+	if err != nil {
 		fmt.Println("Error:", err)
-		os.Exit(1)	
+		return
 	}
 
-	expectedOutPut := float64(374)
-	result := functions.Median(input)
+	defer inputFile.Close()
+	
+	//Read through each line, convert valid data to float64 then add them to a new slice
+	scanner := bufio.NewScanner(inputFile)
+	numbers := []float64{}
+	for scanner.Scan() {
+		line := scanner.Text()
+		num, err := strconv.ParseFloat(line, 64)
+		if err != nil {
+			log.Fatalf("Error %s \n", err)
+		}
+		numbers = append(numbers, num)
+
+	}
+	expectedOutPut := float64(149)
+	result := math.Round(functions.Median(numbers))
 	if result != expectedOutPut{
 		t.Errorf("Expected %.0f but got %.0f", expectedOutPut, result)
 	}
 }
 
 func TestVariance(t *testing.T){
-	input, err := os.ReadFile("testData.txt")
-	if err != nil{
+	inputFile, err := os.Open("testData.txt")
+	if err != nil {
 		fmt.Println("Error:", err)
-		os.Exit(1)	
+		return
 	}
 
-	expectedOutPut := float64(78036884621246793265508744327307533529960551020946949101511105673964153038259427364915391632909533184)
-	result := functions.Variance(input)
+	defer inputFile.Close()
+	
+	//Read through each line, convert valid data to float64 then add them to a new slice
+	scanner := bufio.NewScanner(inputFile)
+	numbers := []float64{}
+	for scanner.Scan() {
+		line := scanner.Text()
+		num, err := strconv.ParseFloat(line, 64)
+		if err != nil {
+			log.Fatalf("Error %s \n", err)
+		}
+		numbers = append(numbers, num)
+
+	}
+
+	expectedOutPut := float64(791)
+	result := math.Round(functions.Variance(numbers))
 	if result != expectedOutPut{
 		t.Errorf("Expected %.0f but got %.0f", expectedOutPut, result)
 	}
 }
 
 func TestStandardDev(t *testing.T){
-	input, err := os.ReadFile("testData.txt")
-	if err != nil{
+	inputFile, err := os.Open("testData.txt")
+	if err != nil {
 		fmt.Println("Error:", err)
-		os.Exit(1)	
+		return
 	}
 
-	expectedOutPut := float64(279350827135426221999859095520080013781830725533696)
-	result := functions.StandardDev(input)
+	defer inputFile.Close()
+	
+	//Read through each line, convert valid data to float64 then add them to a new slice
+	scanner := bufio.NewScanner(inputFile)
+	numbers := []float64{}
+	for scanner.Scan() {
+		line := scanner.Text()
+		num, err := strconv.ParseFloat(line, 64)
+		if err != nil {
+			log.Fatalf("Error %s \n", err)
+		}
+		numbers = append(numbers, num)
+
+	}
+
+	expectedOutPut := float64(28)
+	result := math.Round(functions.StandardDev(numbers))
 	if result != expectedOutPut{
 		t.Errorf("Expected %.0f but got %.0f", expectedOutPut, result)
 	}

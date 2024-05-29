@@ -17,7 +17,6 @@ Your program must be able to read from a file and print the result of each stati
 - 114
 - 145
 - 110
-- 122
 ...
 
 This data represents a statistical population: each line contains one value.
@@ -37,4 +36,4 @@ After reading the file, your program must execute each of the calculations asked
 Please note that the values are rounded integers.
 
 ## Note
-If the dataset contains invalid data such as "ab", "", etc they will be ignored and only the valid ones will be used.
+If the dataset contains invalid data such as "ab", "", etc the program will return an error message.
